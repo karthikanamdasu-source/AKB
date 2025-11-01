@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Your Name — DevOps Engineer</title>
+    <meta name="description" content="DevOps Engineer portfolio showcasing CI/CD, cloud infrastructure, automation projects and skills.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --bg:#0f1724;
+            --card:#0b1220;
+            --muted:#94a3b8;
+            --accent:#7c3aed; /* violet */
+            --accent-2:#06b6d4; /* teal */
+            --glass: rgba(255,255,255,0.03);
+            --radius:12px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+            background: linear-gradient(180deg,#020617 0%, #071029 60%);
+            color:#e6eef8; -webkit-font-smoothing:antialiased;
+            line-height:1.45;
+            -webkit-tap-highlight-color:transparent;
+        }
+
+        .container{max-width:1100px;margin:0 auto;padding:28px}
+
+        header{
+            position:sticky;top:0;z-index:40;backdrop-filter:blur(6px);
+            background:linear-gradient(180deg, rgba(10,12,20,0.6), rgba(10,12,20,0.25));
+            border-bottom:1px solid rgba(255,255,255,0.03);
+        }
+        .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+        .brand h1{font-size:16px;margin:0}
+        nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+        nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+        nav a.active, nav a:hover{color:white;background:var(--glass)}
+
+        /* Mobile menu */
+        .menu-toggle{display:none;background:transparent;border:0;color:var(--muted)}
+
+        main{padding-top:28px}
+        .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
+        .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+        .hero-card h2{margin:0 0 8px;font-size:32px}
+        .hero-card p.lead{color:var(--muted);margin:0 0 16px}
+        .cta{display:flex;gap:12px;margin-top:18px}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+        .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+        .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+        .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+        .avatar{width:160px;height:160px;border-radius:20px;overflow:hidden;border:3px solid rgba(255,255,255,0.04)}
+        .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+        .profile h3{margin:12px 0 6px}
+        .profile p{margin:0;color:var(--muted);font-weight:600}
+
+        section{margin-top:28px}
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+        .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+        .card h3{margin:0 0 8px}
+        .muted{color:var(--muted);font-size:14px}
+
+        .skills{display:flex;flex-direction:column;gap:10px}
+        .skill{display:flex;justify-content:space-between;align-items:center}
+        .progress{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;flex:1;margin-left:12px}
+        .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:60%}
+
+        .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .project-img{height:140px;background:linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.08));border-radius:8px;margin-bottom:12px}
+
+        footer{margin-top:40px;text-align:center;color:var(--muted);font-size:14px}
+
+        /* Responsive */
+        @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}}
+        @media (max-width:600px){.container{padding:18px}.nav{gap:8px}.menu-toggle{display:inline-flex}.nav > nav{display:none}.nav.open > nav{display:block;position:absolute;left:0;right:0;top:64px;background:linear-gradient(180deg,rgba(2,6,23,0.95),rgba(2,6,23,0.95));padding:12px;border-bottom-left-radius:12px;border-bottom-right-radius:12px}}
+        @media (max-width:420px){.grid{grid-template-columns:1fr}}
+
+        /* Small animations */
+        .fade-up{animation:fadeUp .6s ease both}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo">AKB</div>
+                <div>
+                    <h1>Anamdasu Karthik Baba</h1>
+                    <div class="muted">DevOps Engineer</div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero fade-up">
+            <div class="hero-card">
+                <h2>Hi, I'm Anamdasu Karthik Baba</h2>
+                <p class="lead">I design and operate reliable cloud platforms, build automated CI/CD pipelines, and help teams ship faster and safer.</p>
+                <div class="muted">Specialties: Docker · Kubernetes · Terraform · Jenkins · AWS</div>
+                <div class="cta">
+                    <a class="btn btn-primary" href="#contact">Contact Me</a>
+                    <a class="btn btn-ghost" href="#projects">View Projects</a>
+                </div>
+            </div>
+
+            <aside class="profile">
+                <div class="avatar">
+                    <img src="mine.jpg.jpg" alt="Your Name">
+                </div>
+                <h3>Your Name</h3>
+                <p>DevOps Engineer</p>
+                <div style="margin-top:10px;display:flex;gap:8px">
+                    <a class="btn btn-ghost" href="#" target="_blank">GitHub</a>
+                    <a class="btn btn-ghost" href="#" target="_blank">LinkedIn</a>
+                </div>
+            </aside>
+        </section>
+
+        <section id="about" class="fade-up">
+            <div class="card">
+                <h3>About Me</h3>
+                <p class="muted">I help teams adopt infrastructure-as-code and resilient delivery practices. I focus on automation, observability, and cost-efficient cloud design.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-up">
+            <h3>Skills</h3>
+            <div class="grid" style="margin-top:12px">
+                <div class="card">
+                    <h4>Core Skills</h4>
+                    <div class="skills">
+                        <div class="skill"><strong>Docker</strong><div class="progress"><i style="width:90%"></i></div></div>
+                        <div class="skill"><strong>Kubernetes</strong><div class="progress"><i style="width:82%"></i></div></div>
+                        <div class="skill"><strong>CI/CD (Jenkins/GitHub Actions)</strong><div class="progress"><i style="width:88%"></i></div></div>
+                        <div class="skill"><strong>Terraform / Terragrunt</strong><div class="progress"><i style="width:78%"></i></div></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>Cloud & Monitoring</h4>
+                    <ul class="muted">
+                        <li>AWS (EC2, S3, EKS, Lambda)</li>
+                        <li>Prometheus / Grafana</li>
+                        <li>ELK / EFK stacks</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Languages & Tools</h4>
+                    <ul class="muted">
+                        <li>Bash · Python · Go</li>
+                        <li>Helm · Ansible</li>
+                        <li>Monitoring · Logging · Tracing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-up">
+            <h3>Selected Projects</h3>
+            <div class="projects" style="margin-top:12px">
+                <div class="card">
+                    <div class="project-img"></div>
+                    <h4>CI/CD Pipeline Automation</h4>
+                    <p class="muted">Built end-to-end pipelines with Jenkins + Docker, improving deployment frequency and reducing manual steps.</p>
+                    <div style="margin-top:12px;display:flex;gap:8px">
+                        <a class="btn btn-primary" href="#" target="_blank">View Code</a>
+                        <a class="btn btn-ghost" href="#" target="_blank">Case Study</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="project-img"></div>
+                    <h4>Kubernetes on AWS</h4>
+                    <p class="muted">Provisioned secure EKS clusters with autoscaling, blue/green deploys, and integrated observability.</p>
+                    <div style="margin-top:12px;display:flex;gap:8px">
+                        <a class="btn btn-primary" href="#" target="_blank">View Code</a>
+                        <a class="btn btn-ghost" href="#" target="_blank">Architecture</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-up">
+            <div class="card">
+                <h3>Contact</h3>
+                <p class="muted">Want to collaborate, hire, or say hi? Send a message and I'll get back within 48 hours.</p>
+                <form id="contact-form" style="margin-top:12px;display:grid;gap:10px">
+                    <input id="name" type="text" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+                    <input id="email" type="email" placeholder="you@example.com" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+                    <textarea id="message" rows="4" placeholder="How can I help?" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+                    <div style="display:flex;gap:8px">
+                        <button class="btn btn-primary" type="submit">Send Message</button>
+                        <button class="btn btn-ghost" type="button" id="download-cv">Download CV</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div>&copy; <span id="year"></span> Your Name — Built with care.</div>
+        </footer>
+    </main>
+
+    <script>
+        // Small helpers: menu toggle, active link highlight, contact handling
+        document.addEventListener('DOMContentLoaded', function(){
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navWrap = document.querySelector('.nav');
+            const navLinks = document.querySelectorAll('nav a');
+
+            menuToggle && menuToggle.addEventListener('click', ()=> navWrap.classList.toggle('open'));
+
+            // Smooth scroll and active state
+            navLinks.forEach(a=>{
+                a.addEventListener('click', (e)=>{
+                    e.preventDefault();
+                    const id = a.getAttribute('href').slice(1);
+                    const el = document.getElementById(id);
+                    if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
+                    navLinks.forEach(x=>x.classList.remove('active'));
+                    a.classList.add('active');
+                    // close mobile menu
+                    if(navWrap.classList.contains('open')) navWrap.classList.remove('open');
+                });
+            });
+
+            // Contact form (simulated)
+            const form = document.getElementById('contact-form');
+            form && form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                if(!name||!email||!message){ alert('Please fill all fields.'); return }
+                // For privacy, we don't send data anywhere in this static page. You can wire this to an API or Form provider.
+                alert('Thanks, '+name+" — I'll get back to you soon.");
+                console.log({name,email,message});
+                form.reset();
+            });
+
+            // Download CV placeholder
+            const dl = document.getElementById('download-cv');
+            dl && dl.addEventListener('click', ()=>{
+                // Replace with your real CV path if available
+                const link = document.createElement('a');
+                link.href = 'assets/your-cv.pdf';
+                link.download = 'YourName_CV.pdf';
+                document.body.appendChild(link);link.click();link.remove();
+            });
+
+            // Year
+            const year = document.getElementById('year'); if(year) year.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
